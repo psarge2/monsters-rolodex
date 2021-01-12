@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 
@@ -8,20 +7,14 @@ class App extends Component {
 
     this.state = {
       monsters: [
-        {
-          name:'Frankenstein',
-          id: 'sdfd'
-        },
-        {
-          name: 'Dracula',
-          id: 'dsfdfg'
-        },
-        {
-          name: 'Zombie', 
-          id: 'dafs-1'
-        }
       ]
     };
+  }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(users => this.setState({ monsters: users }));
   }
 
 
